@@ -1,0 +1,45 @@
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Secrets / local env
+.env
+.env.local
+.env.*.local
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project outputs & logs
+*.log
+crawl.log
+paper.csv
+papers_with_summary.csv
+arxiv_papers.csv
+cs_ai_recent_10.csv
+
+# Jupyter
+.ipynb_checkpoints/
