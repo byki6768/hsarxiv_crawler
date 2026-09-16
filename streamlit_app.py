@@ -36,8 +36,7 @@ st.html(
   div[data-testid="stSidebarCollapsedControl"] {
     display: none !important;
   }
-  /* 모바일 전용 상단 메뉴 숨김 */
-  div[data-testid="stVerticalBlock"]:has(#mobile-nav-root),
+  /* 모바일 전용 상단 메뉴만 숨김 (상위 본문 블록은 건드리지 않음) */
   div[data-testid="stVerticalBlockBorderWrapper"]:has(#mobile-nav-root) {
     display: none !important;
   }
