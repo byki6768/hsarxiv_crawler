@@ -39,6 +39,12 @@ def csv_info(path: Path) -> tuple[bool, int]:
 
 
 def has_gemini_key() -> bool:
+    try:
+        if "GEMINI_API_KEY" in st.secrets and str(st.secrets["GEMINI_API_KEY"]).strip():
+            return True
+    except Exception:
+        pass
+
     if not ENV_PATH.exists():
         return False
     text = ENV_PATH.read_text(encoding="utf-8")

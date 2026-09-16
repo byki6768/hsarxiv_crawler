@@ -79,12 +79,27 @@ PROMPT_TEMPLATE = """당신은 학술 논문을 중학생도 이해할 수 있�
 
 
 def _load_api_key() -> str:
+    """로컬 .env.local 또는 Streamlit Cloud secrets에서 API 키를 읽는다."""
+    # Streamlit Community Cloud / st.secrets
+    try:
+        import streamlit as st
+
+        if hasattr(st, "secrets") and "GEMINI_API_KEY" in st.secrets:
+            secret_key = str(st.secrets["GEMINI_API_KEY"]).strip()
+            if secret_key:
+                return secret_key
+    except Exception:
+        pass
+
     load_dotenv(ENV_PATH)
     import os
 
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     if not api_key:
-        raise RuntimeError(f".env.local에서 GEMINI_API_KEY를 찾지 못했습니다: {ENV_PATH}")
+        raise RuntimeError(
+            "GEMINI_API_KEY를 찾지 못했습니다. "
+            "로컬은 .env.local, Streamlit Cloud는 App settings > Secrets에 설정하세요."
+        )
     return api_key
 
 

@@ -123,6 +123,22 @@ hsarxiv_crawler/
 └── README.md
 ```
 
+## Streamlit Community Cloud 배포
+
+1. [share.streamlit.io](https://share.streamlit.io)에 GitHub 계정으로 로그인합니다.
+2. **Create app** → 저장소 `byki6768/hsarxiv_crawler`, 브랜치 `main`, 파일 `streamlit_app.py`를 선택합니다.
+3. **Advanced settings → Secrets**에 아래를 붙여넣습니다.
+
+```toml
+GEMINI_API_KEY = "your_gemini_api_key_here"
+```
+
+4. Deploy 후 `*.streamlit.app` URL로 접속합니다.
+
+빠른 배포 링크(로그인 후 값 확인):
+
+https://share.streamlit.io/deploy?repository=byki6768/hsarxiv_crawler&branch=main&mainModule=streamlit_app.py
+
 ## 주의 사항
 
 - arXiv 서버 부하를 줄이기 위해 요청 사이 대기(기본 15초)를 권장합니다.
